@@ -1,3 +1,5 @@
+//Esta biblioteca é responsável por guardar a definição das estruturas, e do máximo de palavras únicas aceitas
+
 #ifndef STRUCTURES_
 #define STRUCTURES_
 

@@ -1,8 +1,10 @@
 #include "binaryTreeSearch.h"
 
+//Variável, Estrutura Global
 node *root = NULL;
 int useBinTree = 0;
 
+//Insere a palavra em uma estrutura
 int prepareInsertionBTree(char *word){
     wordStruct tempWS;
     strcpy(tempWS.word, word);
@@ -11,6 +13,7 @@ int prepareInsertionBTree(char *word){
     return insertNode(&root, tempWS);
 }
 
+//Verifica a existência da palavra e a insere na estrutura
 int insertNode(node** root, wordStruct wS){
     
     if(*root == NULL){          
@@ -34,6 +37,7 @@ int insertNode(node** root, wordStruct wS){
     }
 }
 
+//Função que imprime de forma formatada as palavras presente na estrutura
 void printTree(node* root){
     if(root != NULL){    
         printf("%-20s\t->\t %d\n", root->data.word, root->data.frequency);
@@ -42,14 +46,17 @@ void printTree(node* root){
     }
 }
 
+//Função que retorna a presente estrutura
 node* getRoot(){
     return root;
 }
 
+//Função responsável por retornar o uso da estrutura
 int getUseBinTree(){
     return useBinTree;
 }
 
+//Função responsável por desalocar os ponteiros
 void deallocateTree(node* root){    
     if(root != NULL){
         deallocateTree(root->left);       

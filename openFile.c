@@ -1,34 +1,23 @@
 #include "openFile.h"
 
-//Global Pointer
-char *stringToMain; 
-
-char* openFile(char *urlFile, int sizeOfFile){
+//Abre o arquivo, faz uma cópia de toda sua informação para a variável string
+void openFile(char *urlFile, int sizeOfFile, char *string){
 
     FILE *file;
     file = fopen(urlFile, "r");
     char textLine[sizeOfFile];
-    char string[sizeOfFile];
-    
-    strcpy(string, "");
 
     if(file == NULL){
         perror("\n\aError");
         exit(0);
     }    
     
+    strcpy(string, "");
     while(fgets(textLine, sizeOfFile, file) != NULL){        
         strcat(string, textLine);        
     }    
     fclose(file);    
 
-    sort(string);    
-    stringToMain = string;
-        
-    return stringToMain;
-}
-
-void clearPointerOF(){
-    free(stringToMain);
-    stringToMain = NULL;   
+    //Função responsável por coletar apenas palavras válidas e ordernar em ordem alfábetica
+    sort(string);
 }

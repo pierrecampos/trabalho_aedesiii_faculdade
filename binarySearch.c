@@ -1,9 +1,11 @@
 #include "binarySearch.h"
 
+//Variáveis, Estruturas Globais
 wordStruct *binStructure[MAXWORDS];
 wordStruct *aux;
 int useBinSearch = 0;
 
+//Função que realiza uma pesquisa utilizando conceito de Pesquisa Binária
 int binSearch(int left, int right, char *word){   
         
     int middle = (left + right - 1) / 2;
@@ -28,6 +30,7 @@ int binSearch(int left, int right, char *word){
     return  insertBin(word);
 }
 
+//Função para inserir uma palavra na estrutura
 int insertBin(char *word){
 
     int position = getInsertedWords();
@@ -36,11 +39,12 @@ int insertBin(char *word){
     isNullVector(binStructure, position);
         
     strcpy(binStructure[position]->word, word);
-    binStructure[position]->frequency = 1;   
+    binStructure[position]->frequency = 1;
+    binStructure[position]->next = NULL;
 
     return 1;
 }
-
+//Função que imprime de forma formatada as palavras presente na estrutura
 void printBinary(int totalWords){      
     int i;
     for(i = 0; i < totalWords; i++){
@@ -48,10 +52,12 @@ void printBinary(int totalWords){
     }    
 }
 
+//Função responsável por retornar o uso da estrutura
 int getUseBinSearch(){
     return useBinSearch;
 }
 
+//Função responsável por desalocar os ponteiros
 void deallocateBin(int totalWords){
     int i;
     for(i = totalWords - 1; i >= 0; i--){

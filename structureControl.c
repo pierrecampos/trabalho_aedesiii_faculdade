@@ -2,6 +2,7 @@
 
 int totalStructUse = 0;
 
+//Função responsável por chamar a estrutura escolhida ao executar o programa, esta função recebe uma palavra tratada como argumento
 int structureCtrol(char *word, int typeOfResearch, int totalWords){   
     
     if(typeOfResearch == 0) return seqSearch(word, totalWords);
@@ -12,6 +13,7 @@ int structureCtrol(char *word, int typeOfResearch, int totalWords){
     
 }
 
+//Faz a impressão das palavras já separadas de sua devia estrutura, desaloca ponteiros e retorna o uso total daquela estrutura
 void printCall(int typeOfResearch, int totalWords){    
     if(typeOfResearch == 0) {
         printSequential(totalWords);
@@ -39,7 +41,7 @@ void printCall(int typeOfResearch, int totalWords){
         totalStructUse = getUseLH();
     }
 }
-
+//Retorna o uso total da devida estrutura
 int getTotalStructUse(){
     return totalStructUse;
 }

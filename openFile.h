@@ -5,8 +5,4 @@
 //Custom library
 #include "sortWords.h"
 
-
-char* openFile(char *urlFile, int sizeOfFile);
-void clearPointerOF();
-
-
+void openFile(char *urlFile, int sizeOfFile, char *string);
