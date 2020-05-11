@@ -44,7 +44,7 @@ int main(int argc, char *argv[]){
         printf("\n\t\t-- CAÇA PALAVRAS --\n");
         printf("\n\tPALAVRAS \t-> \tFREQUÊNCIA\n\n");
 
-        //Através da função split, é separado as palavras, que passam por tratameno e por sua devida estrutura
+        //Através da função split, é separado as palavras, que passam por tratamento e por sua devida estrutura
         split(string, typeOfResearch);
 
         //Encerra o tempo de execução
