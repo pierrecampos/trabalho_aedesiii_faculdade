@@ -8,7 +8,7 @@ void openFile(char *urlFile, int sizeOfFile, char *string){
     char textLine[sizeOfFile];
 
     if(file == NULL){
-        perror("\n\aError");
+        perror("\n\aError");    
         exit(0);
     }    
     

@@ -2,7 +2,6 @@
 
 //Variáveis, Estruturas Globais
 wordStruct *binStructure[MAXWORDS];
-wordStruct *aux;
 int useBinSearch = 0;
 
 //Função que realiza uma pesquisa utilizando conceito de Pesquisa Binária
@@ -63,9 +62,7 @@ void deallocateBin(int totalWords){
     for(i = totalWords - 1; i >= 0; i--){
         free(binStructure[i]);
         binStructure[i] = NULL;
-    }    
-    free(aux);
-    aux = NULL;
+    }        
     free(*binStructure);
     *binStructure = NULL;
 }
