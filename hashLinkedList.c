@@ -60,7 +60,8 @@ int insertlinkedHash(wordStruct *tempWS, int position){
     //Se aquela posição houver uma palavra idêntica, aumenta sua frequência
     else if(strcmp(linkedHash->tableHash[position]->word, tempWS->word) == 0){
         useLH++;
-        linkedHash->tableHash[position]->frequency++;                       
+        linkedHash->tableHash[position]->frequency++;
+        free(tempWS);                       
         return 0;
     }
     //Se a palavra não for idêntica, então é verificiado se na lista encadeada há algum valor, em caso negativo, insere a palavra
@@ -75,7 +76,8 @@ int insertlinkedHash(wordStruct *tempWS, int position){
         while(auxInsert != NULL){
             useLH++;                
             if(strcmp(auxInsert->word, tempWS->word) == 0){
-                auxInsert->frequency++;                
+                auxInsert->frequency++;
+                free(tempWS);                
                 return 0;
             }                
             auxInsert = auxInsert->next;
@@ -123,13 +125,10 @@ void preparePrintLH(){
     //Chama a função responsável por imprimir
     printLH(tempS);
 
-    //Desaloca os ponteiros
+    //Desvinculando Ponteiro
     for(i = 0; i < getInsertedWords(); i++){
-        free(tempS[i]);
         tempS[i] = NULL;
     }
-    free(tempS);
-    free(aux);
     aux = NULL;
 }
 
@@ -147,7 +146,7 @@ void sortLH(wordStruct *tempWS[]){
             }
         }
     }
-    free(aux);
+
     aux = NULL;
 }
 
@@ -176,10 +175,8 @@ void deallocateLH(){
             free(linkedHash->tableHash[i]);
             linkedHash->tableHash[i] = NULL;            
         }
-    }    
-    free(aux);
-    aux = NULL;    
-    free(trash);
+    }
+    aux = NULL;
     trash = NULL;
     free(linkedHash);
     linkedHash = NULL;

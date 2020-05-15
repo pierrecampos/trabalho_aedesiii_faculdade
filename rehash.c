@@ -60,7 +60,8 @@ int insertReHash(wordStruct *tempWS, int position){
             return 1;
         }
         else if(strcmp(reHash->tableHash[newPosition]->word, tempWS->word) == 0){
-            reHash->tableHash[newPosition]->frequency++;            
+            reHash->tableHash[newPosition]->frequency++;
+            free(tempWS);       
             useReHash++;
             return 0;
         }
@@ -119,7 +120,6 @@ void sortReHash(){
         }
     }
 
-    free(aux);
     aux = NULL;
 }
 
