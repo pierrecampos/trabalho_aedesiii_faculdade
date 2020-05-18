@@ -22,7 +22,7 @@ int sizeFile(char *urlFile){
 }
 
 //Converte o argumento de pesquisa de char para um valor inteiro
-int typesOfresearch(char *type){
+int typesOfResearch(char *type){
     int typeOfResearch = -1;
     if(strcmp(type, "pseq") == 0) typeOfResearch = 0;    
     if(strcmp(type, "pbinaria") == 0) typeOfResearch = 1;    

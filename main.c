@@ -28,7 +28,7 @@ int main(int argc, char *argv[]){
                                      "Hash Endereçamento Aberto", "Hash Lista Encadeada"};
     
     //Define o tipo de Pesquisa atráves de uma função que faz o tratamento do dado passado por argumento
-    int typeOfResearch = typesOfresearch(argv[1]);    
+    int typeOfResearch = typesOfResearch(argv[1]);    
 
     //Executa o bloco abaixo caso o valor de typeOfResearch seja diferente de -1
     if(typeOfResearch != -1){
