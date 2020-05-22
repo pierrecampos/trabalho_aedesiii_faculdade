@@ -6,13 +6,13 @@ void openFile(char *urlFile, int sizeOfFile, char *string){
     FILE *file;
     file = fopen(urlFile, "r");
     char textLine[sizeOfFile];
-
+    
     if(file == NULL){
         perror("\n\aError");    
         exit(0);
     }    
     
-    strcpy(string, "");
+    memset(string, '\0', sizeOfFile);
     while(fgets(textLine, sizeOfFile, file) != NULL){        
         strcat(string, textLine);        
     }    
